@@ -110,3 +110,4 @@ test.class
 com\aplikasiPOS\ui\ProductLookUpDialog$ProductSelectionListener.class
 com\aplikasiPOS\ui\ProductUI$2.class
 com\aplikasiPOS\ui\ProductUI$ProductTableSelectionListener.class
+reports\DailySalesReport.class

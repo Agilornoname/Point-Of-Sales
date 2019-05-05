@@ -17,6 +17,8 @@ import net.sf.jasperreports.swing.JRViewer;
  */
 public class DailySalesReport extends javax.swing.JInternalFrame {
 
+    JasperPrint print;
+
     /**
      * Creates new form DailySalesReport
      */
@@ -40,6 +42,7 @@ public class DailySalesReport extends javax.swing.JInternalFrame {
         btnBatal = new javax.swing.JButton();
         panelReport = new javax.swing.JPanel();
 
+        setClosable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -129,20 +132,24 @@ public class DailySalesReport extends javax.swing.JInternalFrame {
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         Main.getFrameMenu().dailySalesReportPanel = null;
+        print = null;
         dispose();
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
         Main.getFrameMenu().dailySalesReportPanel = null;
+        print = null;
     }//GEN-LAST:event_formInternalFrameClosed
 
     private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
-        JasperPrint print = Main.getReportService().getDailySalesReport(
-                jDateChooser1.getDate());
+        Main.getFrameMenu().dailySalesReportPanel = null;
+        print = null;
+        print = Main.getReportService().getDailySalesReport(jDateChooser1.getDate());
         JRViewer viewer = new JRViewer(print);
-        panelReport.removeAll();
-        panelReport.add(viewer, BorderLayout.CENTER);
-        panelReport.updateUI();
+        panelReport.setLayout(new BorderLayout());
+        panelReport.repaint();
+        panelReport.add(viewer);
+        panelReport.revalidate();
     }//GEN-LAST:event_btnOKActionPerformed
 
 

@@ -71,6 +71,7 @@ public class Main {
                 securityService = (SecurityService) applicationContext.getBean("securityService");
                 salesService = (SalesService) applicationContext.getBean("salesService");
                 productService = (ProductService) applicationContext.getBean("productService");
+                reportService = (ReportService) applicationContext.getBean("ReportService");
                 frameLogin = new Login();
                 frameMenu = new MainMenu();
                 frameLogin.setLocationRelativeTo(null);

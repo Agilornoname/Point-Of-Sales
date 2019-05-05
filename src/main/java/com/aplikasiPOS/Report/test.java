@@ -29,11 +29,6 @@ public class test {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        securityService = (SecurityService) applicationContext.getBean("securityService");
-        String sql = "select p.name from Product p";
-        List q = securityService.getCustom(sql);
-        for (int i = 0; i < q.size(); i++) {
-            System.out.println(q.get(i));
-        }
+        reportService = (ReportServiceImpl) applicationContext.getBean("CC");
     }
 }
